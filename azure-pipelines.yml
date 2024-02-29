@@ -14,4 +14,4 @@ stages:
     steps:
     - task: Bash@3
       inputs:
-        filePath: 'bash.sh'
+        filePath: '/home/vagrant/pipeline-dockerhub-az/dockerfil/bash.sh'
