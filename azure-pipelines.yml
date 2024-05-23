@@ -1,21 +1,12 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 trigger:
-- nginx
+  branches:
+    include:
+      - nginx  # adjust this to your main branch name
 
-resources:
-- repo: self
+pool: Default
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool: Default
-    steps:
-    - task: Bash@3
-      inputs:
-        filePath: '/home/vagrant/pipeline-dockerhub-az/dockerfile/bash.sh'
+steps:
+- script: |
+    docker-compose up -d
+  displayName: 'docker-compose up'
+
