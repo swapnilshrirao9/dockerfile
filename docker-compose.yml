@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    # Remove the stray quotation mark
+    # Replace MAINTAINER with LABEL
+    labels:
+      maintainer: "name@gmail.com"
+    entrypoint: nginx -g 'daemon off;'
+
